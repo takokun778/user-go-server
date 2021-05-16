@@ -5,4 +5,4 @@ test:
 run:
 	go run main.go
 format:
-	gofmt
+	go fmt ./...
