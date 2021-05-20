@@ -36,7 +36,7 @@ func NewUserCreateUseCase(userRepository repositories.UserRepository) *UserCreat
 }
 
 func (u *UserCreateUseCase) Handle(input *UserCreateUseCaseInput) (output *UserCreateUseCaseOutput, err error) {
-	user := models.NewUser(input.name)
+	user := models.CreateNewUser(input.name)
 	result, err := u.userRepository.Save(user)
 	if err != nil {
 		return nil, err
