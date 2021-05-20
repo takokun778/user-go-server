@@ -23,6 +23,10 @@ type UserCreateUseCaseOutput struct {
 	user *models.User
 }
 
+func (output *UserCreateUseCaseOutput) User() *models.User {
+	return output.user
+}
+
 func NewUserCreateUseCaseOutput(user *models.User) (output *UserCreateUseCaseOutput) {
 	output = new(UserCreateUseCaseOutput)
 	output.user = user
