@@ -9,7 +9,7 @@ import (
 
 func TestNewUser(t *testing.T) {
 	name := "大園玲"
-	result := NewUser(name)
+	result := CreateNewUser(name)
 	assert.Equal(t, result.name, name)
 	assert.True(t, isValidUUID(result.id))
 	t.Log(result)

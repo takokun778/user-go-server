@@ -15,10 +15,20 @@ func (u *User) Name() string {
 	return u.name
 }
 
-func NewUser(name string) (user *User) {
+func newUser(id string, name string) (user *User) {
 	user = new(User)
-	uuid, _ := uuid.NewRandom()
-	user.id = uuid.String()
+	user.id = id
 	user.name = name
+	return
+}
+
+func CreateNewUser(name string) (user *User) {
+	uuid, _ := uuid.NewRandom()
+	user = newUser(uuid.String(), name)
+	return
+}
+
+func CreatePlainUser(id string, name string) (user *User) {
+	user = newUser(id, name)
 	return
 }
