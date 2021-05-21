@@ -33,10 +33,10 @@ func NewUserCreateUseCaseOutput(user *models.User) (output *UserCreateUseCaseOut
 	return
 }
 
-func NewUserCreateUseCase(userRepository repositories.UserRepository) *UserCreateUseCase {
-	return &UserCreateUseCase{
-		userRepository: userRepository,
-	}
+func NewUserCreateUseCase(userRepository repositories.UserRepository) (usecase *UserCreateUseCase) {
+	usecase = new(UserCreateUseCase)
+	usecase.userRepository = userRepository
+	return
 }
 
 func (u *UserCreateUseCase) Handle(input *UserCreateUseCaseInput) (output *UserCreateUseCaseOutput, err error) {
