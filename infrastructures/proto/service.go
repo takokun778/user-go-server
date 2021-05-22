@@ -20,6 +20,6 @@ func NewUserService(injector *injector.Injector) (userServise *UserService) {
 }
 
 func (s *UserService) Create(context context.Context, request *pb.CreateRequest) (response *pb.CreateResponse, err error) {
-	response, err = s.injector.Controller.Post.Execute(request)
+	response, err = s.injector.Controller.Create.Execute(request)
 	return
 }
