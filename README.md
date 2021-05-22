@@ -36,6 +36,43 @@
 ※ わかりやすいようにCRUD操作で命名
 ※ サーバーサイドの実装なのでPresenterは考えない
 
+## domains
+
+models：ドメイン駆動設計のエンティティ
+　ビジネスロジックをゴリゴリ実装
+
+repositoris：データ永続化に対する操作をinterfaceで宣言する
+　依存性逆転を行うため
+
+## usecases
+
+ビジネスロジックを駆使して処理を記述していく
+if文（エラー処理を除く）が現れたらdomainsに移動できないか検討する
+シーケンス図をコーディングで表現しているイメージ
+
+## interfaces controllers
+
+外部からの入力・内部からの出力の値を変換する
+ゲームコントローラーをイメージするとわかりやすい
+
+## interfaces gateways
+
+データ永続層の実装部
+
+## infrastructures proto
+
+grpcを用いて作成された型を実装する
+
+## infrastructures database
+
+自分のサービスが抱えるデータ永続との設定まわりを実装する
+実処理はgatewaysに記述
+
+## injector
+
+依存性の注入（ほぼリポジトリーだけど）を解決する
+なくてもいいがこれがないとprotoのserver実装部が膨らむので切り出す
+
 # grpcの型を取得
 ```bash
 GOPRIVATE=github.com/* go get github.com/takokun778/user-grpc
