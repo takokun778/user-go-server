@@ -7,10 +7,13 @@ import (
 	"github.com/takokun778/user-go-server/domains/models"
 )
 
+type ErrorTranslater struct {
+}
+
 /*
   ドメインモデルのエラーをgRPC用のエラーに変換する
 */
-func ErrorTranslate(error models.IBaseError) error {
+func (ErrorTranslater) Translate(error models.IBaseError) error {
 	// エラーログはここで記述
 	switch error.Code() {
 	case 403:

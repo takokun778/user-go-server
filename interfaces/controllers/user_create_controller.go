@@ -20,9 +20,9 @@ func (c *UserCreateController) Execute(request *pb.CreateRequest) (response *pb.
 
 	output, err := c.userCreateUseCase.Handle(input)
 	if err != nil {
-		return nil, ErrorTranslate(err)
+		return nil, ErrorTranslater{}.Translate(err)
 	}
 	response = new(pb.CreateResponse)
-	response.User = UserTranslate(output.User())
+	response.User = UserTranslater{}.Translate(output.User())
 	return response, nil
 }
