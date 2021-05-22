@@ -22,11 +22,9 @@ func (c *UserCreateController) Execute(request *pb.CreateRequest) (response *pb.
 	if err != nil {
 		return nil, err
 	}
-
-	return &pb.CreateResponse{
-		User: &pb.User{
-			Id:   output.User().Id(),
-			Name: output.User().Name(),
-		},
-	}, nil
+	response = new(pb.CreateResponse)
+	response.User = new(pb.User)
+	response.User.Id = output.User().Id()
+	response.User.Name = output.User().Name()
+	return response, nil
 }
