@@ -15,12 +15,12 @@ func NewUserCreateController(usecase usecases.UserCreateUseCase) (controller *Us
 	return
 }
 
-func (c *UserCreateController) Execute(request *pb.CreateRequest) (response *pb.CreateResponse, err error) {
+func (c *UserCreateController) Execute(request *pb.CreateRequest) (response *pb.CreateResponse, error error) {
 	input := usecases.NewUserCreateUseCaseInput(request.GetName())
 
 	output, err := c.userCreateUseCase.Handle(input)
 	if err != nil {
-		return nil, err
+		return nil, ErrorTranslate(err)
 	}
 	response = new(pb.CreateResponse)
 	response.User = UserTranslate(output.User())
