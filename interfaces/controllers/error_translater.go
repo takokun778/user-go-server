@@ -7,6 +7,9 @@ import (
 	"github.com/takokun778/user-go-server/domains/models"
 )
 
+/*
+  ドメインモデルのエラーをgRPC用のエラーに変換する
+*/
 func ErrorTranslate(error models.IBaseError) error {
 	// エラーログはここで記述
 	switch error.Code() {
