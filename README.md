@@ -107,3 +107,4 @@ GOPRIVATE=github.com/* go get github.com/takokun778/user-grpc
 - [Goでよく見るnewとNewを調べたときのメモ](https://qiita.com/gold-kou/items/4494f8b69b8fa53d5e93)
 - [GitHubのプライベートリポジトリをgo getする](https://www.yuyagishita.com/tech/golang/go-get-github-private-repository/)
 - [Go のモジュール管理【バージョン 1.16 改訂版】](https://zenn.dev/spiegel/articles/20210223-go-module-aware-mode)
+- [GRPCのリクエスト構造とエラーハンドリング](https://qiita.com/kitauji/items/4b33d41d6b77e85a0e85)
