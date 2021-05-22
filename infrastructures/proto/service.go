@@ -7,12 +7,14 @@ import (
 	"github.com/takokun778/user-go-server/injector"
 )
 
+// grpcのサービスを実装するクラス
 type UserService struct {
 	injector *injector.Injector
 	// 未実装のServiceがあるがコンパイラエラーが発生しないように以下を宣言
 	pb.UnimplementedUserServiceServer
 }
 
+// ユーザーサービスコンストラクタ
 func NewUserService(injector *injector.Injector) (userServise *UserService) {
 	userServise = new(UserService)
 	userServise.injector = injector
