@@ -12,22 +12,22 @@ func NewUserGateway() repositories.UserRepository {
 	return &UserGateway{}
 }
 
-func (gateway *UserGateway) Save(user *models.User) (*models.User, *models.BaseError) {
+func (gateway *UserGateway) Save(user *models.User) (*models.User, models.IBaseError) {
 	return user, nil
 }
 
-func (gateway *UserGateway) Find(id string) (*models.User, *models.BaseError) {
-	return nil, models.NewInternalServerError("Not implemented.").BaseError
+func (gateway *UserGateway) Find(id string) (*models.User, models.IBaseError) {
+	return nil, models.NewInternalServerError("Not implemented.")
 }
 
-func (gateway *UserGateway) FindAll() ([]*models.User, *models.BaseError) {
-	return nil, models.NewInternalServerError("Not implemented.").BaseError
+func (gateway *UserGateway) FindAll() ([]*models.User, models.IBaseError) {
+	return nil, models.NewInternalServerError("Not implemented.")
 }
 
-func (gateway *UserGateway) Update(user *models.User) (*models.User, *models.BaseError) {
-	return nil, models.NewInternalServerError("Not implemented.").BaseError
+func (gateway *UserGateway) Update(user *models.User) (*models.User, models.IBaseError) {
+	return nil, models.NewInternalServerError("Not implemented.")
 }
 
-func (gateway *UserGateway) Delete(id string) *models.BaseError {
-	return models.NewInternalServerError("Not implemented.").BaseError
+func (gateway *UserGateway) Delete(id string) models.IBaseError {
+	return models.NewInternalServerError("Not implemented.")
 }

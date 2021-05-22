@@ -46,7 +46,7 @@ func NewUserCreateUseCaseOutput(user *models.User) (output *UserCreateUseCaseOut
  ユーザー作成ユースケースの実処理
  エラー処理以外のif文が発生した場合はドメイン層への移動を検討すること
 */
-func (u *UserCreateUseCase) Handle(input *UserCreateUseCaseInput) (output *UserCreateUseCaseOutput, err *models.BaseError) {
+func (u *UserCreateUseCase) Handle(input *UserCreateUseCaseInput) (output *UserCreateUseCaseOutput, err models.IBaseError) {
 	user := models.CreateNewUser(input.name)
 	result, err := u.userRepository.Save(user)
 	if err != nil {

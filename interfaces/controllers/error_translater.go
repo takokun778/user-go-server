@@ -7,7 +7,7 @@ import (
 	"github.com/takokun778/user-go-server/domains/models"
 )
 
-func ErrorTranslate(error *models.BaseError) error {
+func ErrorTranslate(error models.IBaseError) error {
 	switch error.Code() {
 	case 403:
 		return status.Errorf(codes.Unauthenticated, error.Message())

@@ -2,6 +2,12 @@ package models
 
 import "strconv"
 
+type IBaseError interface {
+	Code() int
+	Message() string
+	Error() string
+}
+
 type BaseError struct {
 	code    int
 	message string
@@ -14,12 +20,12 @@ func newBaseError(code int, message string) (baseError *BaseError) {
 	return
 }
 
-func (e *BaseError) Message() string {
-	return e.message
-}
-
 func (e *BaseError) Code() int {
 	return e.code
+}
+
+func (e *BaseError) Message() string {
+	return e.message
 }
 
 func (e *BaseError) Error() string {
