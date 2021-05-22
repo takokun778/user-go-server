@@ -9,6 +9,12 @@ type UserCreateUseCase struct {
 	userRepository repositories.UserRepository
 }
 
+func NewUserCreateUseCase(userRepository repositories.UserRepository) (usecase *UserCreateUseCase) {
+	usecase = new(UserCreateUseCase)
+	usecase.userRepository = userRepository
+	return
+}
+
 type UserCreateUseCaseInput struct {
 	name string
 }
@@ -30,12 +36,6 @@ func (output *UserCreateUseCaseOutput) User() *models.User {
 func NewUserCreateUseCaseOutput(user *models.User) (output *UserCreateUseCaseOutput) {
 	output = new(UserCreateUseCaseOutput)
 	output.user = user
-	return
-}
-
-func NewUserCreateUseCase(userRepository repositories.UserRepository) (usecase *UserCreateUseCase) {
-	usecase = new(UserCreateUseCase)
-	usecase.userRepository = userRepository
 	return
 }
 
