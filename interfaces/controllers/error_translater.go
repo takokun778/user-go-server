@@ -8,6 +8,7 @@ import (
 )
 
 func ErrorTranslate(error models.IBaseError) error {
+	// エラーログはここで記述
 	switch error.Code() {
 	case 403:
 		return status.Errorf(codes.Unauthenticated, error.Message())
