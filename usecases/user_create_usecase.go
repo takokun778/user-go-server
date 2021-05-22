@@ -5,10 +5,12 @@ import (
 	"github.com/takokun778/user-go-server/domains/repositories"
 )
 
+// ユーザー作成ユースケース
 type UserCreateUseCase struct {
 	userRepository repositories.UserRepository
 }
 
+// コンストラクタ
 func NewUserCreateUseCase(userRepository repositories.UserRepository) (usecase *UserCreateUseCase) {
 	usecase = new(UserCreateUseCase)
 	usecase.userRepository = userRepository
@@ -29,6 +31,7 @@ type UserCreateUseCaseOutput struct {
 	user *models.User
 }
 
+// ゲッター
 func (output *UserCreateUseCaseOutput) User() *models.User {
 	return output.user
 }
@@ -39,6 +42,10 @@ func NewUserCreateUseCaseOutput(user *models.User) (output *UserCreateUseCaseOut
 	return
 }
 
+/*
+ ユーザー作成ユースケースの実処理
+ エラー処理以外のif文が発生した場合はドメイン層への移動を検討すること
+*/
 func (u *UserCreateUseCase) Handle(input *UserCreateUseCaseInput) (output *UserCreateUseCaseOutput, err error) {
 	user := models.CreateNewUser(input.name)
 	result, err := u.userRepository.Save(user)
