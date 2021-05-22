@@ -23,8 +23,6 @@ func (c *UserCreateController) Execute(request *pb.CreateRequest) (response *pb.
 		return nil, err
 	}
 	response = new(pb.CreateResponse)
-	response.User = new(pb.User)
-	response.User.Id = output.User().Id()
-	response.User.Name = output.User().Name()
+	response.User = UserTranslate(output.User())
 	return response, nil
 }
