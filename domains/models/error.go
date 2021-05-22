@@ -42,10 +42,10 @@ type NotFoundError struct {
 	*BaseError
 }
 
-func NewNotFoundError(message string) *NotFoundError {
-	return &NotFoundError{
-		BaseError: newBaseError(404, "Not Found Error:"+message),
-	}
+func NewNotFoundError(message string) (error *NotFoundError) {
+	error = new(NotFoundError)
+	error.BaseError = newBaseError(404, "Not Found Error:"+message)
+	return
 }
 
 // 500~
