@@ -75,7 +75,8 @@ grpcを用いて作成された型を実装する
 
 # grpcの型を取得
 ```bash
-GOPRIVATE=github.com/* go get github.com/takokun778/user-grpc
+go get google.golang.org/grpc
+GOPRIVATE=github.com/* go get github.com/takokun778/user-go-grpc
 ```
 
 # Rule
@@ -108,3 +109,4 @@ GOPRIVATE=github.com/* go get github.com/takokun778/user-grpc
 - [GitHubのプライベートリポジトリをgo getする](https://www.yuyagishita.com/tech/golang/go-get-github-private-repository/)
 - [Go のモジュール管理【バージョン 1.16 改訂版】](https://zenn.dev/spiegel/articles/20210223-go-module-aware-mode)
 - [GRPCのリクエスト構造とエラーハンドリング](https://qiita.com/kitauji/items/4b33d41d6b77e85a0e85)
+- [Go言語でgRPCに入門してみた2 認証処理を追加してみた](https://zenn.dev/miyazi777/articles/a560e691fcee0b6449e4)
